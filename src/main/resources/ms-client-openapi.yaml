@@ -14,7 +14,7 @@ servers:
 tags:
   - name: Client
     description: client
-  - name: ClientType
+  - name: ClientProfile
     description: client type
   - name: DocumentType
     description: client document type
@@ -35,18 +35,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientResponse'  
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'    
     get:
       tags:
         - Client
@@ -61,18 +49,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ClientResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
   /client/{clientId}:
     put:
       tags:
@@ -94,18 +70,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
     get:
       tags:
         - Client
@@ -124,18 +88,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
     delete:
       tags:
         - Client
@@ -150,49 +102,25 @@ paths:
       responses:
         '200':
           description: delete client by id    
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'      
-  /client-type:
+  /client-profile:
     post:
       tags:
-        - ClientType
-      operationId: addClientType
+        - ClientProfile
+      operationId: addClientProfile
       description: 'POST'
       requestBody:
-        $ref: '#/components/requestBodies/ClientTypetRequest'
+        $ref: '#/components/requestBodies/ClientProfileRequest'
       responses:
         '200':
           description: 'response client type post'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientTypeResponse' 
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'     
+                $ref: '#/components/schemas/ClientProfileResponse'
     get:
       tags:
-        - ClientType
-      operationId: getAllClientType
+        - ClientProfile
+      operationId: getAllClientProfile
       description: GETALL
       responses:
         '200':
@@ -202,60 +130,36 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientTypeResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /client-type/{clientTypeId}:
+                  $ref: '#/components/schemas/ClientProfileResponse'
+  /client-profile/{profileId}:
     put:
       tags:
-        - ClientType
-      operationId: updateClientType
+        - ClientProfile
+      operationId: updateClientProfile
       description: 'PUT'
       parameters:
         - in: path
-          name: clientTypeId
+          name: profileId
           required: true
           schema:
             type: string
       requestBody:
-        $ref: '#/components/requestBodies/ClientTypetRequest'
+        $ref: '#/components/requestBodies/ClientProfileRequest'
       responses:
         '200':
           description: 'response client type put'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientTypeResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ClientProfileResponse'    
     get:
       tags:
-        - ClientType
-      operationId: getClientTypeById
+        - ClientProfile
+      operationId: getClientProfileById
       description: GET
       parameters:
         - in: path
-          name: clientTypeId
+          name: profileId
           required: true
           schema:
             type: string
@@ -265,187 +169,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientTypeResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/ClientProfileResponse'
     delete:
       tags:
-        - ClientType
-      operationId: deleteClientTypeById
+        - ClientProfile
+      operationId: deleteClientProfileById
       description: 'DELETE'
       parameters:
         - in: path
-          name: clientTypeId
+          name: profileId
           required: true
           schema:
             type: string
       responses:
         '200':
           description: delete client type by id
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /document-type:
-    post:
-      tags:
-        - DocumentType
-      operationId: addDocumentType
-      description: 'POST'
-      requestBody:
-        $ref: '#/components/requestBodies/DocumentTypeRequest'
-      responses:
-        '200':
-          description: 'response document type post'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DocumentTypeResponse'  
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'    
-    get:
-      tags:
-        - DocumentType
-      operationId: getAllDocumentType
-      description: GETALL
-      responses:
-        '200':
-          description: 'response get all document type'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/DocumentTypeResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /document-type/{documentTypeId}:
-    put:
-      tags:
-        - DocumentType
-      operationId: updateDocumentType
-      description: 'PUT'
-      parameters:
-        - in: path
-          name: documentTypeId
-          required: true
-          schema:
-            type: string
-      requestBody:
-        $ref: '#/components/requestBodies/DocumentTypeRequest'
-      responses:
-        '200':
-          description: 'response document type put'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DocumentTypeResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-    get:
-      tags:
-        - DocumentType
-      operationId: getDocumentTypeById
-      description: GET
-      parameters:
-        - in: path
-          name: documentTypeId
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: 'response get document type by id'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DocumentTypeResponse'
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      tags:
-        - DocumentType
-      operationId: deleteDocumentTypeById
-      description: 'DELETE'
-      parameters:
-        - in: path
-          name: documentTypeId
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: delete document type by id
-        '404':
-          description: Not Found
-          content:            
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json;charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/Error'
 
 components:
   schemas:
@@ -454,14 +192,17 @@ components:
       description: Client model
       required:
         - clientTypeId
-        - documentTypeId
-      properties:        
-        clientTypeId:
+        - profileId
+      properties:      
+        profileId:
           type: string
-          example: '1'          
-        documentTypeId:
+          example: '1'    
+        clientType:
           type: string
-          example: '1'
+          example: 'PERSONAL, EMPRESARIAL'                
+        documentType:
+          type: string
+          example: 'DNI, RUC'
         documentNumber:
           type: integer
           example: 70787541
@@ -487,10 +228,15 @@ components:
         clientId:
           type: string
           example: '1'
+        profileId:
+          type: string
+          example: '1' 
         clientType:
-          $ref: '#/components/schemas/ClientTypeResponse'        
+          type: string
+          example: 'PERSONAL, EMPRESARIAL'   
         documentType:
-          $ref: '#/components/schemas/DocumentTypeResponse'
+          type: string
+          example: 'DNI, RUC'            
         documentNumber:
           type: integer
           example: 70787541
@@ -509,7 +255,7 @@ components:
         address:
           type: string
           example: Av. Brazil 456
-    ClientTypeRequest:
+    ClientProfileRequest:
       type: object
       description: Client type model
       required:
@@ -517,47 +263,17 @@ components:
       properties:
         name:
           type: string
-          example: 'PERSONAL, EMPRESARIAL'
-    ClientTypeResponse:
+          example: 'VIP, PYME'
+    ClientProfileResponse:
       type: object
       description: Client type model
       properties:
-        clientTypeId:
+        profileId:
           type: string
           example: '1'
         name:
           type: string
-          example: 'PERSONAL, EMPRESARIAL'
-    DocumentTypeRequest:
-      type: object
-      description: Document type model
-      properties:        
-        name:
-          type: string
-          example: 'DNI, RUC, PASAPORTE'
-    DocumentTypeResponse:
-      type: object
-      description: Document type model
-      properties:
-        documentTypeId:
-          type: string
-          example: '1'
-        name:
-          type: string
-          example: 'DNI, RUC, PASAPORTE'
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        type:
-          type: string
-        message:
-          type: string
-      required:
-        - code
-        - type
-        - message   
+          example: 'VIP, PYME'
 
   requestBodies:
     ClientRequest:
@@ -566,15 +282,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ClientRequest'
-    ClientTypetRequest:
+    ClientProfileRequest:
       required: true
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ClientTypeRequest'
-    DocumentTypeRequest:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/DocumentTypeRequest'
+            $ref: '#/components/schemas/ClientProfileRequest'

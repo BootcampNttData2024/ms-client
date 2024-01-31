@@ -18,10 +18,13 @@ public class Client {
     private String  clientId;
 
     @NotNull
-    private String clientTypeId;
+    private String profileId;
 
     @NotNull
-    private String documentTypeId;
+    private String clientType;
+
+    @NotNull
+    private String documentType;
 
     @NotNull
     private Integer documentNumber;

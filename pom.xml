@@ -41,19 +41,6 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct-processor</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-
 
 		<!--dependencies for API First-->
 		<dependency>
@@ -95,12 +82,14 @@
 							<generatorName>spring</generatorName>
 							<apiPackage>com.vasquez.msclient.api</apiPackage>
 							<modelPackage>com.vasquez.msclient.model</modelPackage>
-							<generateSupportingFiles>false</generateSupportingFiles>
+							<!--generateSupportingFiles>false</generateSupportingFiles-->
+							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
 							<configOptions>
 								<reactive>true</reactive>
 								<serializableModel>true</serializableModel>
-								<interfaceOnly>true</interfaceOnly>
-								<skipDefaultInterface>true</skipDefaultInterface>
+								<delegatePattern>true</delegatePattern>
+								<!--interfaceOnly>true</interfaceOnly-->
+								<!--skipDefaultInterface>true</skipDefaultInterface-->
 								<useResponseEntity>false</useResponseEntity>
 							</configOptions>
 						</configuration>

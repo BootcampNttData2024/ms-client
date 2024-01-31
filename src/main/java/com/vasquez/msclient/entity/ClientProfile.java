@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "document_type")
-public class DocumentType {
+@Document(collection = "client_profile")
+public class ClientProfile {
 
     @Id
-    private String  documentTypeId;
+    private String profileId;
 
     @NotNull
     private String name;
