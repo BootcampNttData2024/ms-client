@@ -90,7 +90,7 @@
 								<delegatePattern>true</delegatePattern>
 								<!--interfaceOnly>true</interfaceOnly-->
 								<!--skipDefaultInterface>true</skipDefaultInterface-->
-								<useResponseEntity>false</useResponseEntity>
+								<!--useResponseEntity>false</useResponseEntity-->
 							</configOptions>
 						</configuration>
 					</execution>
