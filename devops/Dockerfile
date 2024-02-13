@@ -1,4 +1,4 @@
-FROM openjdk:17-jre-alpine
+FROM openjdk:8-jre-alpine
 
 RUN mkdir -p /opt/logs
 WORKDIR /opt
