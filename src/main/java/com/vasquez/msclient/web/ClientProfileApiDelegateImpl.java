@@ -3,7 +3,7 @@ package com.vasquez.msclient.web;
 import com.vasquez.msclient.api.ClientProfileApiDelegate;
 import com.vasquez.msclient.model.ClientProfileRequest;
 import com.vasquez.msclient.model.ClientProfileResponse;
-import com.vasquez.msclient.service.ClientProfileService;
+import com.vasquez.msclient.business.ClientProfileService;
 import com.vasquez.msclient.web.mapper.ClientProfileMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
-package com.vasquez.msclient.service.impl;
+package com.vasquez.msclient.business.impl;
 
 import com.vasquez.msclient.entity.ClientProfile;
 import com.vasquez.msclient.repository.ClientProfileRepository;
-import com.vasquez.msclient.service.ClientProfileService;
+import com.vasquez.msclient.business.ClientProfileService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

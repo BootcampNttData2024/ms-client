@@ -1,11 +1,11 @@
-package com.vasquez.msclient.service.impl;
+package com.vasquez.msclient.business.impl;
 
 import com.vasquez.msclient.entity.Client;
 import com.vasquez.msclient.entity.enums.ClientProfile;
 import com.vasquez.msclient.entity.enums.ClientType;
 import com.vasquez.msclient.repository.ClientRepository;
-import com.vasquez.msclient.service.ClientService;
-import com.vasquez.msclient.service.exception.AppException;
+import com.vasquez.msclient.business.ClientService;
+import com.vasquez.msclient.business.exception.AppException;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

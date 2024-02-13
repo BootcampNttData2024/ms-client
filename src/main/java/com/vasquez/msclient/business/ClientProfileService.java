@@ -1,4 +1,4 @@
-package com.vasquez.msclient.service;
+package com.vasquez.msclient.business;
 
 import com.vasquez.msclient.entity.ClientProfile;
 import reactor.core.publisher.Flux;

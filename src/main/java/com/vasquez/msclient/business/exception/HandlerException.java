@@ -1,4 +1,4 @@
-package com.vasquez.msclient.service.exception;
+package com.vasquez.msclient.business.exception;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
