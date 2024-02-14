@@ -1,5 +1,11 @@
-on: push
-name: deploy
+name: Build and deploy JAR app to Azure Web App - nttdata-ms-client
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
   build:
     name: build and push image
